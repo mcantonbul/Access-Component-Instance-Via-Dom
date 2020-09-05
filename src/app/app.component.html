@@ -1,0 +1,33 @@
+<div style="width: 900px; height:450px; background-color:green">
+
+  <label style="position: absolute; left: 300px; font-weight: bolder;">
+    <ng-container *ngIf="selectedComponent; else infoSection">
+      Selected component: {{selectedComponent?.ComponentName}}
+      <br>
+      Found From : {{foundFrom}}
+      <br>
+      Count: {{ selectedComponent?.Count}}
+    </ng-container>
+    <ng-template #infoSection>
+      Please Click Any Color Component
+    </ng-template>
+  </label>
+
+
+  <div class="color-div blue">
+    <app-blue></app-blue>
+  </div>
+
+  <div class="color-div red">
+    <app-red></app-red>
+  </div>
+
+  <div class="color-div purple">
+    <app-purple></app-purple>
+  </div>
+
+
+
+
+
+</div>
