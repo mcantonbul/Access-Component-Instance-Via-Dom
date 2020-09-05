@@ -2,6 +2,39 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.0.
 
+##
+``` typescript
+MONKEY_PATCH_KEY_NAME = '__ngContext__';
+```
+
+
+``` typescript
+findAngularComponent(element: any) {
+  let comp;
+  let process = true;
+  this.foundFrom = element.tagName;
+  while(process) {
+    if(element[this.MONKEY_PATCH_KEY_NAME]){
+      if(element[this.MONKEY_PATCH_KEY_NAME][0]) {
+        comp = element[this.MONKEY_PATCH_KEY_NAME][8]
+      } else {
+        // app-root component
+        comp = null;
+      }
+      process = false;
+    } else {
+      element = element.parentNode;
+      this.foundFrom = `${this.foundFrom} > ${element.tagName}`
+    }
+  }
+  return comp;
+}
+```
+
+## ScreenShots
+![1](https://github.com/mcantonbul/Access-Component-Instance-Via-Dom/blob/master/src/assets/1.png?raw=true)
+![2](https://github.com/mcantonbul/Access-Component-Instance-Via-Dom/blob/master/src/assets/2.png?raw=true)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
