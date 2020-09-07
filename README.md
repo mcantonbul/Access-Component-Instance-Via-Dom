@@ -2,6 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.0.
 
+Demo Page https://mcantonbul.github.io/Access-Component-Instance-Via-Dom/
 ## Code
 ``` typescript
 MONKEY_PATCH_KEY_NAME = '__ngContext__';
